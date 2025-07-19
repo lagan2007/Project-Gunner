@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -6648197521127785867}
-  speed: 8000
+  speed: 2500
   layerMask:
     serializedVersion: 2
     m_Bits: 279

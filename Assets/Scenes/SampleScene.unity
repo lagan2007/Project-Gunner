@@ -1487,7 +1487,7 @@ MonoBehaviour:
   playerCameraTrs: {fileID: 330585546}
   playerBody: {fileID: 1985222240}
   sensitivity: 5
-  moveSpeed: 10
+  moveSpeed: 15
   jumpForce: 6
   groundDrag: 5
   Zmultiplier: 1
