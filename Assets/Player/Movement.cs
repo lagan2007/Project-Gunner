@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Xml.Schema;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -23,8 +24,13 @@ public class Movement : MonoBehaviour
     float jumpForce;
 
     [SerializeField]
+    GameObject groundCheck;
+
+
+    [SerializeField]
     float groundDrag;
 
+    public bool isGrappled;
 
     public float Zmultiplier = 1;
     public float Xmultiplier;
@@ -53,6 +59,7 @@ public class Movement : MonoBehaviour
         RotatePlayer();
         Jump();
         //GroundDrag();
+        GrappleCheck();
         if (grounded)
         {
             exploded = false;
@@ -64,7 +71,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         
-        Move();
+        //Move();
         //LimitSpeed();
         //ExplodedManager();
 
@@ -125,14 +132,16 @@ public class Movement : MonoBehaviour
 
         if (exploded)
         {
-
-
             playerBody.linearVelocity += new Vector3(moveDirection.x / 5f, 0, moveDirection.z / 5f);
         }
-        else
+        else if(grounded)
         {
             //playerBody.linearVelocity = new Vector3(moveDirection.x * moveSpeed, playerBody.linearVelocity.y, moveDirection.z * moveSpeed);//main movement
             playerBody.linearVelocity = new Vector3(moveDirection.x * moveSpeed, playerBody.linearVelocity.y, moveDirection.z * moveSpeed);
+        }
+        else
+        {
+
         }
 
 
@@ -195,5 +204,19 @@ public class Movement : MonoBehaviour
         
     }
 
-    
+    private void GrappleCheck()
+    {
+        if (isGrappled)
+        {
+            groundCheck.SetActive(false);
+            grounded = false;
+        }
+        else
+        {
+            groundCheck.SetActive(true);
+        }
+    }
+
+
+
 }

@@ -19,7 +19,6 @@ public class Grounded : MonoBehaviour
         if (other.gameObject.layer == 8)
         {
             movement.grounded = true;
-            Debug.Log("hit");
         }
 
 
