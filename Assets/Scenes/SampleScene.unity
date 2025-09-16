@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0795709cf91e4da4d817721c05a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 1985222245}
+  movement: {fileID: 0}
 --- !u!136 &462698652
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1795,8 +1795,8 @@ GameObject:
   - component: {fileID: 1985222242}
   - component: {fileID: 1985222241}
   - component: {fileID: 1985222240}
-  - component: {fileID: 1985222245}
   - component: {fileID: 1985222250}
+  - component: {fileID: 1985222251}
   - component: {fileID: 1985222246}
   - component: {fileID: 1985222247}
   m_Layer: 6
@@ -1830,7 +1830,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 2
 --- !u!136 &1985222241
@@ -1928,31 +1928,6 @@ Transform:
   - {fileID: 146113835}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1985222245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985222239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e7f012402b69d4d8142942327990a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 330585545}
-  playerCameraTrs: {fileID: 330585546}
-  playerBody: {fileID: 1985222240}
-  sensitivity: 5
-  moveSpeed: 15
-  jumpForce: 6
-  groundCheck: {fileID: 462698649}
-  groundDrag: 5
-  isGrappled: 0
-  Zmultiplier: 1
-  Xmultiplier: 1
-  grounded: 0
-  exploded: 0
 --- !u!114 &1985222246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2096,7 +2071,33 @@ MonoBehaviour:
     m_Bits: 256
   grappledPoint: {x: 0, y: 0, z: 0}
   lr: {fileID: 1985222247}
-  movement: {fileID: 1985222245}
+  movement: {fileID: 0}
+--- !u!114 &1985222251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985222239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc00bcdcddc16846aa44f6a8dd432f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 330585546}
+  orientation: {fileID: 1985222244}
+  moveSpeed: 4500
+  maxSpeed: 20
+  grounded: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  counterMovement: 0.175
+  maxSlopeAngle: 35
+  slideForce: 400
+  slideCounterMovement: 0.2
+  jumpForce: 150
+  gravityScale: 1
 --- !u!4 &2145267274 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6131705223218282361, guid: cd6822b9e9490874d8ed72624ba63f4b, type: 3}

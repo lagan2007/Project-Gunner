@@ -71,7 +71,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         
-        //Move();
+        Move();
         //LimitSpeed();
         //ExplodedManager();
 
@@ -130,18 +130,15 @@ public class Movement : MonoBehaviour
 
         moveDirection.Normalize();
 
-        if (exploded)
-        {
-            playerBody.linearVelocity += new Vector3(moveDirection.x / 5f, 0, moveDirection.z / 5f);
-        }
-        else if(grounded)
+        
+        if(grounded)
         {
             //playerBody.linearVelocity = new Vector3(moveDirection.x * moveSpeed, playerBody.linearVelocity.y, moveDirection.z * moveSpeed);//main movement
             playerBody.linearVelocity = new Vector3(moveDirection.x * moveSpeed, playerBody.linearVelocity.y, moveDirection.z * moveSpeed);
         }
-        else
+        else //if (exploded || isGrappled)
         {
-
+            playerBody.linearVelocity += new Vector3(moveDirection.x / 5f, 0, moveDirection.z / 5f);
         }
 
 
@@ -160,24 +157,6 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void LimitSpeed()
-    {
-        Vector3 flatVel = new Vector3(playerBody.linearVelocity.x, 0f, playerBody.linearVelocity.z);
-
-        
-
-        if (exploded)
-        {
-            Xmultiplier = 0.000001f;
-            Zmultiplier = 0.4f;
-        }
-        else
-        {
-            Xmultiplier = 1;
-            Zmultiplier = 1;
-        }
-
-    }
 
 
     private void Jump()

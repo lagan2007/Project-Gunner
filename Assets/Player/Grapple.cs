@@ -71,7 +71,7 @@ public class Grapple : MonoBehaviour
         {
             Debug.Log("hit " + hit.transform.gameObject);
 
-            movement.isGrappled = true;
+            //movement.isGrappled = true;
             grappledPoint = hit.point;
             joint = player.AddComponent<SpringJoint>();
 
@@ -92,7 +92,7 @@ public class Grapple : MonoBehaviour
     {
         lr.positionCount = 0;
         Destroy(joint);
-        movement.isGrappled = false;
+        //movement.isGrappled = false;
     }
 
     private void LateUpdate()
